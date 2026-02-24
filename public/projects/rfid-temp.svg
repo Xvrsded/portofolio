@@ -1,0 +1,6 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="700" fill="#020617"/>
+<rect x="120" y="120" width="960" height="460" rx="30" fill="#0F172A" stroke="#334155"/>
+<text x="160" y="240" fill="#67E8F9" font-size="54" font-family="Arial">RFID + Temperature Attendance</text>
+<text x="160" y="320" fill="#94A3B8" font-size="34" font-family="Arial">IoT smart access logging</text>
+</svg>

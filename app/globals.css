@@ -1,0 +1,152 @@
+@import "../styles/theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply border-slate-800;
+}
+
+body {
+  @apply bg-slate-950 text-gray-100 antialiased;
+}
+
+main {
+  @apply overflow-x-hidden;
+}
+
+.portfolio-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 10%, rgba(30, 64, 175, 0.3), transparent 34%),
+    radial-gradient(circle at 82% 26%, rgba(14, 165, 233, 0.24), transparent 40%),
+    #020617;
+}
+
+.portfolio-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(148, 163, 184, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.11) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at 50% 20%, black 35%, transparent 88%);
+  animation: gridDrift 18s linear infinite;
+}
+
+.portfolio-bg::after {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  background:
+    radial-gradient(36% 30% at 18% 22%, rgba(14, 165, 233, 0.22), transparent 70%),
+    radial-gradient(34% 28% at 84% 30%, rgba(99, 102, 241, 0.2), transparent 72%),
+    radial-gradient(30% 24% at 52% 78%, rgba(56, 189, 248, 0.16), transparent 70%);
+  filter: blur(30px);
+  opacity: 0.85;
+  animation: liquidFlow 22s ease-in-out infinite;
+}
+
+.liquid-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  opacity: 0.54;
+  mix-blend-mode: screen;
+  animation: liquidDrift 12s ease-in-out infinite;
+}
+
+.liquid-blob.one {
+  width: 340px;
+  height: 340px;
+  left: -80px;
+  top: 80px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.55), rgba(14, 165, 233, 0.08) 70%);
+}
+
+.liquid-blob.two {
+  width: 320px;
+  height: 320px;
+  right: -70px;
+  top: 210px;
+  animation-delay: -7s;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.44), rgba(56, 189, 248, 0.08) 70%);
+}
+
+.liquid-blob.three {
+  width: 300px;
+  height: 300px;
+  left: 46%;
+  bottom: -70px;
+  animation-delay: -3.5s;
+  opacity: 0.46;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.44), rgba(59, 130, 246, 0.06) 70%);
+}
+
+@keyframes liquidDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(40px, -28px, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes liquidFlow {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-22px, 18px, 0) scale(1.06) rotate(4deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes gridDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sparkleFloat {
+  0%,
+  100% {
+    opacity: 0.32;
+    transform: translate3d(0, 0, 0) rotate(-12deg);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translate3d(6px, -8px, 0) rotate(-12deg);
+  }
+}
+
+.animate-sparkle-float {
+  animation: sparkleFloat 3.6s ease-in-out infinite;
+}
+
+::selection {
+  @apply bg-cyan-400/30 text-gray-100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
